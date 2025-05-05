@@ -1,6 +1,7 @@
 export interface JobOpening {
   id: number;
   title: string;
+  active: boolean;
   locations: string[];
   introduction?: string | null;
   jobDescription: {
@@ -23,6 +24,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 1,
     title: "Java Full Stack Developer - I",
+    active: true,
     locations: ["Phoenix, AZ"],
     introduction:
       "We are seeking a talented and passionate Java Full Stack Developer to join our growing team. The ideal candidate will have strong expertise in developing scalable backend services using Java, Spring Boot, Kafka, and Hibernate/JPA, and building dynamic front-end applications using React.js.",
@@ -70,6 +72,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 2,
     title: "Sr Java/J2EE Engineer - II",
+    active: true,
     locations: ["New York, NY"],
     introduction:
       "You will be responsible for designing, developing, and maintaining highly responsive web applications and backend microservices, while collaborating closely with cross-functional teams in an Agile/Scrum environment.",
@@ -98,6 +101,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 3,
     title: "Java Full Stack Developer - III",
+    active: true,
     locations: ["Mclean, VA"],
     introduction: null,
     jobDescription: {
@@ -136,6 +140,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 4,
     title: "Java MicroServices Back End Developer - IV",
+    active: true,
     locations: ["Phoenix, AZ"],
     introduction: null,
     jobDescription: {
@@ -164,6 +169,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 5,
     title: "React/React Native Full Stack Developer",
+    active: true,
     locations: ["Richfield, MN", "Boston", "Phoenix, AZ"],
     introduction:
       "You will Design and build new features into one of the most advanced interfaces on the web. Work with other engineers and designers to deliver strong customer-focused experiences. Keep our product up to date with the latest frontend technologies with React and React Native.",
@@ -196,6 +202,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 6,
     title: "QA/SDET Engineer",
+    active: true,
     locations: ["Phoenix, AZ", "Mclean, VA"],
     introduction:
       "As a QA/SDET Engineer, you will design, build and maintain automated test frameworks and tools to ensure the quality of web and API-based applications. You’ll work closely with developers and product owners to integrate testing early in the SDLC.",
@@ -227,6 +234,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 7,
     title: "Mobile QA Engineer",
+    active: true,
     locations: ["New York, NY"],
     introduction:
       "The Mobile QA Engineer ensures the stability, usability and performance of our Android and iOS applications by designing and executing comprehensive automated and manual tests.",
@@ -252,6 +260,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 8,
     title: "GCP Test Engineer",
+    active: true,
     locations: ["Palo Alto, CA"],
     introduction:
       "As a GCP Test Engineer, you will ensure the reliability and scalability of our cloud-native services running on Google Cloud Platform through automated testing and infrastructure validation.",
@@ -277,6 +286,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 9,
     title: "Manual Test Engineer (E-commerce)",
+    active: true,
     locations: ["New York, NY"],
     introduction:
       "Join our retail e-commerce team to manually test shopping cart workflows, payment integrations, and front-end features to deliver a seamless online shopping experience.",
@@ -301,6 +311,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 10,
     title: "AWS DevOps Lead Engineer",
+    active: true,
     locations: ["New York, NY", "Phoenix, AZ"],
     introduction:
       "Lead our DevOps practice by architecting and implementing scalable, secure CI/CD pipelines and AWS infrastructure to support development and operations teams.",
@@ -325,6 +336,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 11,
     title: "Cloud Solutions Architect",
+    active: true,
     locations: ["New York, NY"],
     introduction:
       "As a Cloud Solutions Architect, you will define architecture blueprints, guide cloud migrations, and ensure our platforms are designed for performance, security, and scalability.",
@@ -349,6 +361,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 12,
     title: "Azure Cloud / AKS Engineering Manager",
+    active: true,
     locations: ["Montvale, NJ"],
     introduction:
       "We seek an experienced hands-on engineering manager with deep Azure experience, to join a large custom-application team. Lead migration efforts from IAAS/VM to PAAS via containerization with AKS",
@@ -384,6 +397,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 13,
     title: "AWS Data Engineer",
+    active: true,
     locations: ["Phoenix, AZ", "McLean, VA"],
     introduction:
       "Build and maintain scalable data pipelines on AWS to ingest, process, and store large volumes of structured and unstructured data for analytics and machine learning.",
@@ -408,6 +422,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 14,
     title: "Azure Data Engineer",
+    active: true,
     locations: ["Phoenix, AZ", "McLean, VA"],
     introduction:
       "Develop robust data solutions on Azure, leveraging Azure Data Factory, Databricks, and Synapse Analytics to support enterprise reporting and analytics.",
@@ -431,6 +446,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 15,
     title: "GCP Data Engineer",
+    active: true,
     locations: ["Phoenix, AZ", "McLean, VA"],
     introduction:
       "Implement data ingestion, transformation, and analytics workloads on GCP, using tools like Dataflow, BigQuery, and Pub/Sub to power real-time and batch pipelines.",
@@ -455,6 +471,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 16,
     title: "Data and Analytics Lead Consultant",
+    active: true,
     locations: ["Montvale, NJ"],
     introduction:
       "Serve as a strategic advisor for data and analytics initiatives, guiding clients on architecture, best practices, and technology selection to drive data-driven decisions.",
@@ -479,6 +496,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 17,
     title: "Cybersecurity Analyst",
+    active: true,
     locations: ["Piscataway, NJ"],
     introduction:
       "Protect our information assets by implementing and monitoring security controls, firewalls, and compliance processes in accordance with GLBA and other regulations.",
@@ -503,6 +521,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 18,
     title: "Scrum Master / Technical Progra/Project Manager",
+    active: true,
     locations: ["Phoenix, AZ"],
     introduction:
       "Guide Agile teams as Scrum Master or TPM, facilitating ceremonies, removing impediments, and coordinating cross-functional delivery of software products.",
@@ -527,6 +546,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 19,
     title: "Android Engineer",
+    active: true,
     locations: ["CA"],
     introduction:
       "Design and build high-performance Android applications, collaborating on architecture, UI/UX, and integration with backend services.",
@@ -551,6 +571,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 20,
     title: "iOS Developer",
+    active: true,
     locations: ["CA"],
     introduction:
       "Create and maintain robust, user-friendly iOS applications using Swift and Apple’s frameworks, with a strong focus on code quality and performance.",
@@ -575,6 +596,7 @@ export const jobOpenings: JobOpening[] = [
   {
     id: 21,
     title: "Senior Data Governance Specialist",
+    active: true,
     locations: ["New York, NY", "Phoenix, AZ"],
     introduction:
       "Lead data governance initiatives by defining policies, standards, and processes to ensure data quality, lineage, and compliance across the organization.",
