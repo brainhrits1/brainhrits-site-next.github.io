@@ -26,11 +26,26 @@ const testimonials = [
 ];
 
 const clients = [
-  { name: "TechGiant", logo: "/placeholder.svg?height=60&width=120" },
-  { name: "InnovateNow", logo: "/placeholder.svg?height=60&width=120" },
-  { name: "DataSphere", logo: "/placeholder.svg?height=60&width=120" },
-  { name: "CloudWorks", logo: "/placeholder.svg?height=60&width=120" },
-  { name: "CodeCraft", logo: "/placeholder.svg?height=60&width=120" },
+  {
+    name: "TechGiant",
+    logo: "/clientsLogo/ALLY_Bank.jpg?height=60&width=120",
+  },
+  {
+    name: "AMEX",
+    logo: "/clientsLogo/AMEXLOGO.png?height=60&width=120",
+  },
+  {
+    name: "BESTBUY",
+    logo: "/clientsLogo/BESTBUY.png?height=60&width=120",
+  },
+  {
+    name: "BioIntelliSense",
+    logo: "/clientsLogo/BioIntellisense_Logo.jpg?height=60&width=120",
+  },
+  {
+    name: "Citizens Bank",
+    logo: "/clientsLogo/Citizens-Bank.jpg?height=60&width=120",
+  },
 ];
 
 export default function Home() {
@@ -293,7 +308,7 @@ export default function Home() {
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="grayscale hover:grayscale-0 transition-all"
+                // className="grayscale hover:grayscale-0 transition-all"
               >
                 <Image
                   src={client.logo || "/placeholder.svg"}
@@ -309,7 +324,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-intermediate text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
             Ready to Find Your Perfect Match?
