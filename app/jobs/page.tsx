@@ -45,6 +45,34 @@ export default function JobPage() {
         subtitle="Explore career opportunities at BrainHR IT Solutions and be part of our mission to connect exceptional talent with prestigious software companies."
       />
 
+
+      {/* Current Openings */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Current Openings"
+            subtitle="Explore our current job opportunities and find your next career move."
+            centered
+          />
+
+          <div className="mt-12">
+            <Tabs defaultValue="all" className="w-full">
+              <TabsList className="grid grid-cols-3 max-w-md mx-auto mb-8">
+                <TabsTrigger value="all">All Positions</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="all" className="space-y-6 ">
+              {jobOpenings
+  ?.filter((job) => job.active)
+  .map((job) => (
+    <JobCard key={job.id} job={job} />
+))}
+              </TabsContent>
+            </Tabs>
+          </div>
+        </div>
+      </section>
+
       {/* Company Culture */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -205,33 +233,9 @@ export default function JobPage() {
         </div>
       </section>
 
-      {/* Current Openings */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Current Openings"
-            subtitle="Explore our current job opportunities and find your next career move."
-            centered
-          />
-
-          <div className="mt-12">
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid grid-cols-3 max-w-md mx-auto mb-8">
-                <TabsTrigger value="all">All Positions</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="all" className="space-y-6 ">
-                {jobOpenings?.map((job) => (
-                  <JobCard key={job.id} job={job} />
-                ))}
-              </TabsContent>
-            </Tabs>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Testimonials"
@@ -304,7 +308,7 @@ export default function JobPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Application Process */}
       <section className="py-20">
