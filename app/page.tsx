@@ -84,7 +84,7 @@ const clients = [
   },
   {
     name: "Lifescan",
-    logo: "/clientsLogo/lifescan.wepg?height=60&width=120",
+    logo: "/clientsLogo/lifescan.webp?height=60&width=120",
   },
   {
     name: "MasterCard",
@@ -104,7 +104,7 @@ const clients = [
   },
   {
     name: "ROCHE",
-    logo: "/clientsLogo/ROCHE.png?height=60&width=120",
+    logo: "/clientsLogo/ROCHE.jpg?height=60&width=120",
   },
   {
     name: "RR Donnelley",
@@ -120,7 +120,7 @@ const clients = [
   },
   {
     name: "Tech Mahindra",
-    logo: "/clientsLogo/TechM.png?height=60&width=120",
+    logo: "/clientsLogo/TechM.jpg?height=60&width=120",
   },
   {
     name: "WAHBE",
