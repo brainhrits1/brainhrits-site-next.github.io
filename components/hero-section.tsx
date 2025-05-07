@@ -44,7 +44,7 @@ export function HeroSection({
         )}
       >
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading animate-fadeIn leading-tight text-primary">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading animate-fadeIn leading-tight text-intermediate">
             {title}
           </h1>
 
