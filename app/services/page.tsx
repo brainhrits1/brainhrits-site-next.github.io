@@ -217,18 +217,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Technology Expertise"
-            subtitle="Our talent network spans across various technology domains to meet your specific requirements."
-          />
-
-          <div className="mt-12">
-            <ServiceTabs services={technologies} />
-          </div>
-        </div>
-      </section>
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeading
@@ -238,6 +227,19 @@ export default function ServicesPage() {
 
           <div className="mt-12">
             <ServiceTabs services={training} />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Technology Expertise"
+            subtitle="Our talent network spans across various technology domains to meet your specific requirements."
+          />
+
+          <div className="mt-12">
+            <ServiceTabs services={technologies} />
           </div>
         </div>
       </section>

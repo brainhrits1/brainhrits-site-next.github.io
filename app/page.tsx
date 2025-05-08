@@ -372,7 +372,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50" id="testimonials">
+      {/* <section className="py-20 bg-gray-50" id="testimonials">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Client Testimonials"
@@ -385,7 +385,7 @@ export default function Home() {
             <TestimonialCarousel testimonials={testimonials} />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Clients */}
       <section className="py-20">

@@ -103,7 +103,7 @@ export default function CompanyPage() {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Our Mission & Values"
@@ -153,10 +153,10 @@ export default function CompanyPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Our Team */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Meet Our Team"
@@ -182,7 +182,7 @@ export default function CompanyPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us */}
       <section className="py-20 bg-gray-50">
