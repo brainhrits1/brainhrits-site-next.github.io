@@ -140,7 +140,7 @@ export function Footer() {
               <li className="flex items-center space-x-2">
                 <MapPin className="text-primary" />
                 <span className="text-muted-foreground">
-                  Corporate Office: 33 Wood Avenue South, Suite 100, Iselin
+                  Corporate Office: 33 Wood Avenue South, Suite 600, Iselin
                   NJ-08830
                 </span>
               </li>

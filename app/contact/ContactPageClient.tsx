@@ -188,7 +188,7 @@ export default function ContactPageClient() {
                     <h3 className="text-lg font-bold mb-1">Our Offices</h3>
                     <p className="fw-700 mt-2">Corporate Office:</p>
                     <p className="text-muted-foreground">
-                      33 Wood Avenue South, Suite 100, Iselin NJ, 08830, United
+                      33 Wood Avenue South, Suite 600, Iselin NJ, 08830, United
                       States
                     </p>
                     <p className="fw-700 mt-2">Development Center:</p>
