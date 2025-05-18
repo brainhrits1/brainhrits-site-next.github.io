@@ -147,7 +147,7 @@ export function Footer() {
               <li className="flex items-center space-x-2">
               <MapPin className="text-primary" />
               <span className="text-muted-foreground">Development Center:
-                      Inman Ave Suite 202D, Colonia, NJ 07067, United States
+                      800 Inman Ave Suite 202D, Colonia, NJ 07067, United States
                 </span>
               </li>
               <li className="flex items-center space-x-2">

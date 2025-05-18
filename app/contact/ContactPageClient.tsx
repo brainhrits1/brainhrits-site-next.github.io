@@ -193,7 +193,7 @@ export default function ContactPageClient() {
                     </p>
                     <p className="fw-700 mt-2">Development Center:</p>
                     <p className="text-muted-foreground">
-                      Inman Ave Suite 202D, Colonia, NJ 07067, United States
+                     800 Inman Ave Suite 202D, Colonia, NJ 07067, United States
                     </p>
                   </div>
                 </div>
