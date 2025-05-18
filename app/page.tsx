@@ -47,6 +47,10 @@ const clients = [
     logo: "/clientsLogo/Citizens-Bank.jpg?height=60&width=120",
   },
   {
+    name: "DTCC",
+    logo: "/clientsLogo/DTCC-logo.jpeg?height=60&width=120",
+  },
+  {
     name: "Fannie Mae",
     logo: "/clientsLogo/Fannie-Mae.webp?height=60&width=120",
   },
