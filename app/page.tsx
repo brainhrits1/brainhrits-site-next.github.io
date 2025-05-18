@@ -198,9 +198,9 @@ export default function Home() {
             <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
               <Users className="h-6 w-6" />
             </div>
-            <h3 className="text-lg font-bold mb-2">Perfect Match Guarantee</h3>
+            <h3 className="text-lg font-bold mb-2">Algorithmically Curated! Human Approved.</h3>
             <p className="text-muted-foreground">
-              Our rigorous matching process ensures cultural fit and technical
+              Our rigorous screening process ensures cultural fit and technical
               alignment for lasting success.
             </p>
           </div>
