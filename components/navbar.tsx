@@ -57,7 +57,7 @@ export function Navbar() {
                 "text-sm font-medium transition-colors hover:text-primary",
                 pathname === link.href
                   ? "text-primary font-semibold"
-                  : "text-gray-700"
+                  : "text-gray-900"
               )}
             >
               {link.name}

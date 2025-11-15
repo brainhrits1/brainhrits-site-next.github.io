@@ -13,209 +13,15 @@ import {
   Briefcase,
   User,
 } from "lucide-react";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "John Doe",
-    company: "ABC Inc.",
-    role: "CTO",
-    quote:
-      "BrainHR IT Solutions has been instrumental in helping us build our engineering team. Their understanding of our technical requirements and company culture allowed them to find perfect matches for our open positions.",
-  },
-];
-
-const clients = [
-  {
-    name: "TechGiant",
-    logo: "/clientsLogo/ALLY_Bank.jpg?height=60&width=120",
-  },
-  {
-    name: "AMEX",
-    logo: "/clientsLogo/AMEXLOGO.png?height=60&width=120",
-  },
-  {
-    name: "BESTBUY",
-    logo: "/clientsLogo/BESTBUY.png?height=60&width=120",
-  },
-  {
-    name: "BioIntelliSense",
-    logo: "/clientsLogo/BioIntellisense_Logo.jpg?height=60&width=120",
-  },
-  {
-    name: "Citizens Bank",
-    logo: "/clientsLogo/Citizens-Bank.jpg?height=60&width=120",
-  },
-  {
-    name: "DTCC",
-    logo: "/clientsLogo/DTCC-logo.jpeg?height=60&width=120",
-  },
-  {
-    name: "Fannie Mae",
-    logo: "/clientsLogo/Fannie-Mae.webp?height=60&width=120",
-  },
-  {
-    name: "Federal Reserve Bank",
-    logo: "/clientsLogo/FEDERALRESERVEBANK.png?height=60&width=120",
-  },
-  {
-    name: "Freddie Mac",
-    logo: "/clientsLogo/freddie-mac.jpg?height=60&width=120",
-  },
-  {
-    name: "Goldman Sachs",
-    logo: "/clientsLogo/Goldman_Sachs.png?height=60&width=120",
-  },
-  {
-    name: "HealthFirst",
-    logo: "/clientsLogo/healthfirst.png?height=60&width=120",
-  },
-  {
-    name: "Hexaware",
-    logo: "/clientsLogo/hexaware.png?height=60&width=120",
-  },
-  {
-    name: "JP Morgan Chase",
-    logo: "/clientsLogo/JP_Morgan_logo.png?height=60&width=120",
-  },
-  {
-    name: "Kaiser Permanente",
-    logo: "/clientsLogo/kaiser-permanente-logo.png?height=60&width=120",
-  },
-  {
-    name: "KPMG",
-    logo: "/clientsLogo/KPMG.png?height=60&width=120",
-  },
-  {
-    name: "Lifescan",
-    logo: "/clientsLogo/lifescan.webp?height=60&width=120",
-  },
-  {
-    name: "MasterCard",
-    logo: "/clientsLogo/MasterCard_Logo.png?height=60&width=120",
-  },
-  {
-    name: "Medtronic",
-    logo: "/clientsLogo/Medtronic-Logo.png?height=60&width=120",
-  },
-  {
-    name: "Options Clearing Corporation",
-    logo: "/clientsLogo/Options_Clearing_Corporation_logo.png?height=60&width=120",
-  },
-  {
-    name: "OSCAR HEALTH",
-    logo: "/clientsLogo/OSCAR_HEALTH.png?height=60&width=120",
-  },
-  {
-    name: "ROCHE",
-    logo: "/clientsLogo/ROCHE.jpg?height=60&width=120",
-  },
-  {
-    name: "RR Donnelley",
-    logo: "/clientsLogo/RR_Donnelley_logo.png?height=60&width=120",
-  },
-  {
-    name: "Silicon Valley Bank",
-    logo: "/clientsLogo/SiliconValleyBank.png?height=60&width=120",
-  },
-  {
-    name: "SLING TV",
-    logo: "/clientsLogo/SLINGTV.png?height=60&width=120",
-  },
-  {
-    name: "Tech Mahindra",
-    logo: "/clientsLogo/TechM.jpg?height=60&width=120",
-  },
-  {
-    name: "WAHBE",
-    logo: "/clientsLogo/WAHBE.png?height=60&width=120",
-  },
-  {
-    name: "WALMART",
-    logo: "/clientsLogo/WALMART.jpg?height=60&width=120",
-  },
-  {
-    name: "Wells Fargo",
-    logo: "/clientsLogo/Wells_Fargo_Logo.png?height=60&width=120",
-  },
-];
+import { clients } from "@/lib/clients";
+import { testimonials } from "@/lib/testimonial";
+import { HeroCarousel } from "@/components/hero-carousel";
+import { ClientSlider } from "@/components/client-slider";
 
 export default function Home() {
   return (
     <>
-      <HeroSection
-        title="Connecting Elite Tech Talent with Industry-Leading Innovators"
-        subtitle="Your dedicated platform for exceptional software careers and building world-class engineering teams"
-      >
-        <div className="flex flex-col md:flex-row gap-6 justify-center mt-8 max-w-2xl mx-auto">
-          <Button
-            asChild
-            size="lg"
-            className="text-base py-6 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all"
-          >
-            <Link href="/jobs" className="flex items-center">
-              <User className="mr-2 h-5 w-5" />
-              Find Your Dream Role
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="secondary"
-            size="lg"
-            className="text-base py-6 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all"
-          >
-            <Link href="/services" className="flex items-center">
-              <Briefcase className="mr-2 h-5 w-5" />
-              Hire Top Tech Talent
-            </Link>
-          </Button>
-        </div>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
-            <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
-              <Award className="h-6 w-6" />
-            </div>
-            <h3 className="text-lg font-bold mb-2">Elite Talent Network</h3>
-            <p className="text-muted-foreground">
-              Access to pre-vetted software professionals with proven expertise
-              across all technology stacks.
-            </p>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
-            <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4">
-              <Building className="h-6 w-6" />
-            </div>
-            <h3 className="text-lg font-bold mb-2">Premier Partnerships</h3>
-            <p className="text-muted-foreground">
-              Exclusive relationships with industry-leading software companies
-              seeking exceptional talent.
-            </p>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
-            <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
-              <Users className="h-6 w-6" />
-            </div>
-            <h3 className="text-lg font-bold mb-2">Algorithmically Curated, Human Approved.</h3>
-            <p className="text-muted-foreground">
-              Our rigorous screening process ensures cultural fit and technical
-              alignment for lasting success.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-16 flex justify-center">
-          <div className="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
-            <ArrowRight className="mr-2 h-4 w-4 animate-pulse" />
-            <a href="#testimonials" className="text-sm font-medium">
-              See what our clients say
-            </a>
-          </div>
-        </div>
-      </HeroSection>
-
+      <HeroCarousel />
       {/* About Section */}
       <section className="py-20 bg-gray-50" id="about">
         <div className="container mx-auto px-4">
@@ -396,22 +202,22 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <SectionHeading title="Trusted by Industry Leaders" centered />
 
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mt-12">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                // className="grayscale hover:grayscale-0 transition-all"
-              >
-                <Image
-                  src={client.logo || "/placeholder.svg"}
-                  alt={client.name}
-                  width={120}
-                  height={60}
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+          <ClientSlider>
+            <>
+              {clients.map((client, index) => (
+                <div key={index} className="relative h-12 w-[100px]">
+                  <Image
+                    src={client.logo || "/placeholder.svg"}
+                    alt={client.name}
+                    width={160}
+                    height={48}
+                    className="h-12 w-auto object-contain block pointer-events-none select-none"
+                    sizes="(min-width: 1024px) 160px, 120px"
+                  />
+                </div>
+              ))}
+            </>
+          </ClientSlider>
         </div>
       </section>
 
