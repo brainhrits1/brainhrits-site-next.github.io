@@ -17,15 +17,16 @@ export function ClientSlider({
   children,
   className,
   gap = 28,
-  speed = 140,
-  speedOnHover = 70,
-  pauseOnHover = false,
+  speed = 120,
+  speedOnHover = 100,
+  pauseOnHover = true,
 }: ClientSliderProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const firstTrackRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const [trackWidth, setTrackWidth] = useState(0);
   const [runningSpeed, setRunningSpeed] = useState(speed);
+  const controlsRef = useRef<any>(null);
 
   // Duplicate children once for seamless loop
   const items = useMemo(() => {
@@ -48,17 +49,32 @@ export function ClientSlider({
 
   // Run the marquee based on pixels-per-second so duration scales with content length
   useEffect(() => {
-    if (!trackWidth) return;
+    if (!trackWidth || runningSpeed === 0) {
+      controlsRef.current?.stop();
+      return;
+    }
+
     const distance = -trackWidth; // move left by exactly one set
     const duration = Math.max(0.001, Math.abs(distance) / runningSpeed); // s
 
-    const controls = animate(x, [0, distance], {
+    // Stop previous animation
+    controlsRef.current?.stop();
+
+    // Store current progress to resume smoothly
+    const currentProgress = x.get();
+    const progressRatio = currentProgress / distance;
+    const remainingDistance = distance * (1 - Math.abs(progressRatio));
+
+    // Start new animation from current position
+    const controls = animate(x, [currentProgress, distance], {
       ease: "linear",
-      duration,
+      duration: duration * (1 - Math.abs(progressRatio)),
       repeat: Infinity,
       repeatType: "loop",
       onRepeat: () => x.set(0),
     });
+
+    controlsRef.current = controls;
 
     return () => controls.stop();
   }, [trackWidth, runningSpeed, x]);
@@ -67,7 +83,7 @@ export function ClientSlider({
     speedOnHover || pauseOnHover
       ? {
           onMouseEnter: () => {
-            if (pauseOnHover) setRunningSpeed(Number.POSITIVE_INFINITY);
+            if (pauseOnHover) setRunningSpeed(0);
             else if (speedOnHover) setRunningSpeed(speedOnHover);
           },
           onMouseLeave: () => setRunningSpeed(speed),

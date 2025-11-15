@@ -23,7 +23,10 @@ export default function Home() {
     <>
       <HeroCarousel />
       {/* About Section */}
-      <section className="py-20 bg-gray-50" id="about">
+      <section
+        id="about"
+        className="relative scroll-mt-20 pt-32 pb-20 bg-gray-50"
+      >
         <div className="container mx-auto px-4">
           <SectionHeading
             title="About BrainHR IT Solutions"
