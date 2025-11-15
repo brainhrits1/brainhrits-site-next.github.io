@@ -29,7 +29,7 @@ const slides: Slide[] = [
     subtitle:
       "Your dedicated platform for exceptional software careers and building world-class engineering teams",
     subtitleHighlights: ["exceptional", "world-class"],
-    image: "/carouselImages/team.jpeg",
+    image: "/carouselImages/team.jpg",
   },
   {
     title: "Elite Talent Network",
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     titleHighlights: ["Premier"],
     body: "Exclusive relationships with industry-leading software companies seeking exceptional talent.",
     bodyHighlights: ["Exclusive", "exceptional talent"],
-    image: "/carouselImages/hiring.jpeg",
+    image: "/carouselImages/hiring.jpg",
   },
 ];
 
@@ -95,13 +95,6 @@ export function HeroCarousel() {
 
   return (
     <div className="relative h-screen w-full">
-      <>
-        <Head>
-          <link rel="preload" as="image" href="/carouselImages/team.jpeg" />
-          <link rel="preload" as="image" href="/carouselImages/digital.jpg" />
-          <link rel="preload" as="image" href="/carouselImages/hiring.jpeg" />
-        </Head>
-      </>
       <Carousel
         plugins={[autoplay.current]}
         className="w-full h-full"

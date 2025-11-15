@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   title: "BrainHR IT Solutions",
   description:
     "BrainHR IT Solutions provides premium staffing solutions for prestigious software companies in India and the US. Connect with top-tier talent today.",
+  other: {
+    "image-credits": JSON.stringify(imageCredits),
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -33,6 +36,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="preload" as="image" href="/carouselImages/team.jpg" />
+        <link rel="preload" as="image" href="/carouselImages/digital.jpg" />
+        <link rel="preload" as="image" href="/carouselImages/hiring.jpg" />
       </head>
       <body className="font-sans">
         <Navbar />
@@ -44,3 +50,4 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 }
 
 import "./globals.css";
+import { imageCredits } from "@/lib/image-credits";
