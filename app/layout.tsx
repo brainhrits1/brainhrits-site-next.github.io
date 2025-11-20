@@ -1,14 +1,10 @@
-"use client";
-
 import React from "react";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { usePathname } from "next/navigation";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { DefaultSeo } from "next-seo";
+import { LayoutContent } from "./layout-content";
+import { imageCredits } from "@/lib/image-credits";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,9 +28,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-  const isAdminPage = pathname?.startsWith("/admin");
-
   return (
     <html
       lang="en"
@@ -47,13 +40,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preload" as="image" href="/carouselImages/hiring.jpg" />
       </head>
       <body className="font-sans">
-        {!isAdminPage && <Navbar />}
-        <main className="min-h-screen">{children}</main>
-        {!isAdminPage && <Footer />}
+        <LayoutContent>{children}</LayoutContent>
       </body>
     </html>
   );
 }
-
-import "./globals.css";
-import { imageCredits } from "@/lib/image-credits";
