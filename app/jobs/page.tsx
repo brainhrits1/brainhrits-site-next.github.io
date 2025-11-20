@@ -1,8 +1,12 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroSection } from "@/components/hero-section";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Card,
   CardContent,
@@ -11,64 +15,131 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  ArrowRight,
-  Briefcase,
-  MapPin,
-  Clock,
-  DollarSign,
-  Heart,
-  Users,
-  Coffee,
-} from "lucide-react";
-
-import { JobOpening, jobOpenings } from "./jobsDataJson";
+import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-export const metadata: Metadata = {
-  title: "jobs",
-  description:
-    "Explore job opportunities at BrainHR IT Solutions and join our team of staffing professionals.",
-};
+import {
+  ArrowRight,
+  Briefcase,
+  MapPin,
+  Heart,
+  Users,
+  Coffee,
+} from "lucide-react";
+import { JobApplicationForm } from "@/components/job-application-form";
+import { publicApi, Job } from "@/lib/adminApi";
 
 export default function JobPage() {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const categories = Array.from(new Set(jobs.map(job => job.job_category).filter(Boolean))) as string[];
+
+  const filteredJobs = jobs.filter(job => {
+    const matchesCategory = selectedCategory === "" || job.job_category === selectedCategory;
+    const matchesSearch = searchQuery === "" || 
+      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  useEffect(() => {
+    loadJobs();
+  }, []);
+
+  const loadJobs = async () => {
+    try {
+      const jobsData = await publicApi.getJobs();
+      setJobs(jobsData.filter(job => job.active));
+    } catch (error) {
+      console.error('Failed to load jobs:', error);
+      setError('Failed to load jobs. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
-      <HeroSection
-        title="Join Our Team"
-        subtitle="Explore career opportunities at BrainHR IT Solutions and be part of our mission to connect exceptional talent with prestigious software companies."
-      />
+      {/* Shortened Hero Section - White Background */}
+      <section className="bg-white text-gray-800 py-24 border-b">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
+          <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Explore career opportunities at BrainHR IT Solutions and be part of our mission to connect exceptional talent with prestigious software companies.
+          </p>
+        </div>
+      </section>
 
+      {/* Search Bar and Category Filter */}
+      <section className="py-4 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto mb-6">
+            <Input
+              type="text"
+              placeholder="Search jobs by title, location, or keywords..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full"
+            />
+          </div>
+
+          {/* Category Filter - Immediately Below Search */}
+          {categories.length > 0 && (
+            <div className="flex flex-wrap gap-2 justify-center">
+              <Button
+                variant={selectedCategory === "" ? "default" : "outline"}
+                onClick={() => setSelectedCategory("")}
+                className={selectedCategory === "" ? "bg-orange-600 hover:bg-orange-700" : ""}
+              >
+                All Positions
+              </Button>
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category)}
+                  className={selectedCategory === category ? "bg-orange-600 hover:bg-orange-700" : ""}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Current Openings */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Current Openings"
-            subtitle="Explore our current job opportunities and find your next career move."
-            centered
-          />
-
-          <div className="mt-12">
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid grid-cols-3 max-w-md mx-auto mb-8">
-                <TabsTrigger value="all">All Positions</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="all" className="space-y-6 ">
-              {jobOpenings
-  ?.filter((job) => job.active)
-  .map((job) => (
-    <JobCard key={job.id} job={job} />
-))}
-              </TabsContent>
-            </Tabs>
+          <div className="mt-0">
+            {loading ? (
+              <div className="text-center py-8">
+                <div className="animate-pulse">Loading jobs...</div>
+              </div>
+            ) : error ? (
+              <div className="text-center py-8 text-red-600">
+                {error}
+              </div>
+            ) : filteredJobs.length === 0 ? (
+              <div className="text-center py-8 text-muted-foreground">
+                {jobs.length === 0 ? "No job openings available at the moment. Please check back later." : "No jobs match your search. Try adjusting your search terms or category filter."}
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {filteredJobs.map((job) => (
+                  <JobCard key={job.id} job={job} />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -233,83 +304,6 @@ export default function JobPage() {
         </div>
       </section>
 
-
-      {/* Testimonials */}
-      {/* <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Testimonials"
-            subtitle="Hear what our team members have to say about working at BrainHR IT Solutions."
-            centered
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            <Card>
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-bold">R</span>
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">Person 1</CardTitle>
-                    <CardDescription>Role</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  BrainHR IT Solutions helped me find my dream job. The team was
-                  incredibly supportive and guided me through every step of the
-                  process. I couldn&apos;t have asked for a better experience!
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-bold">A</span>
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">Person 1</CardTitle>
-                    <CardDescription>Role</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Working at BrainHR IT Solutions has been a game-changer for my
-                  career. The company culture is fantastic, and I feel supported
-                  in my professional growth every day.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-bold">J</span>
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">Person 3</CardTitle>
-                    <CardDescription>Role</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  I am grateful to BrainHR IT Solutions for connecting me with
-                  such a prestigious company. The team was professional and
-                  attentive, making the entire process smooth and enjoyable.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section> */}
-
       {/* Application Process */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -390,8 +384,7 @@ export default function JobPage() {
 }
 
 interface JobCardProps {
-  key: number;
-  job: JobOpening;
+  job: Job;
 }
 
 function JobCard({ job }: JobCardProps) {
@@ -399,51 +392,69 @@ function JobCard({ job }: JobCardProps) {
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value={`job-${job.id}`}>
         <AccordionTrigger>
-          <div className="flex items-center justify-between p-4">
-            <span className="font-semibold">{job.title}</span>
-            <span className="font-extralight from-neutral-600 text-muted-foreground ml-4">
-              {job.locations.join(", ")}
-            </span>
+          <div className="flex items-center justify-between w-full p-4">
+            <div className="flex items-center space-x-4">
+              <span className="font-semibold text-left">{job.title}</span>
+              <Badge variant="secondary" className="flex items-center">
+                <MapPin className="h-3 w-3 mr-1" />
+                {job.location}
+              </Badge>
+            </div>
           </div>
         </AccordionTrigger>
         <AccordionContent>
-          {job.introduction && (
-            <p className="text-muted-foreground mb-4">{job.introduction}</p>
-          )}
-
-          <div>
-            <h4 className="font-semibold mb-2">Responsibilities:</h4>
-            <ul className="list-disc pl-5 space-y-1">
-              {job.jobDescription.keyResponsibilities.map(
-                (responsibility, index) => (
-                  <li key={index} className="text-sm text-muted-foreground">
-                    {responsibility}
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          {job.requiredSkills && (
-            <div className="mt-4">
-              <h4 className="font-semibold mb-2">Required Skills:</h4>
-              <ul className="list-disc pl-5 space-y-1">
-                {job.requiredSkills.map((skill, index) => (
-                  <li key={index} className="text-sm text-muted-foreground">
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+          <div className="p-4 space-y-4">
+            <div>
+              <h4 className="font-semibold mb-2">Job Description:</h4>
+              <div className="text-sm text-muted-foreground whitespace-pre-line">
+                {job.description}
+              </div>
             </div>
-          )}
 
-          <div className="mt-4">
-            <Button asChild>
-              <Link href={`/jobs/apply/${job.id}`}>
-                Apply Now
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            {job.visa_constraints && (
+              <div>
+                <h4 className="font-semibold mb-2">Visa Requirements:</h4>
+                <div className="text-sm text-muted-foreground whitespace-pre-line">
+                  {job.visa_constraints}
+                </div>
+              </div>
+            )}
+
+            {job.job_category && (
+              <div>
+                <h4 className="font-semibold mb-2">Job Category:</h4>
+                <Badge className="bg-blue-100 text-blue-800">{job.job_category}</Badge>
+              </div>
+            )}
+
+            {job.assessment_url && (
+              <div>
+                <h4 className="font-semibold mb-2">Assessment:</h4>
+                <p className="text-sm text-muted-foreground mb-2">Candidates are required to complete an assessment as part of the application process.</p>
+                <a
+                  href={job.assessment_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
+                >
+                  Take Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </div>
+            )}
+
+            <div className="flex justify-start">
+              <JobApplicationForm
+                jobId={job.id}
+                jobTitle={job.title}
+                trigger={
+                  <Button>
+                    Apply Now
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                }
+              />
+            </div>
           </div>
         </AccordionContent>
       </AccordionItem>
