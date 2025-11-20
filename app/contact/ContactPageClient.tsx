@@ -27,6 +27,7 @@ import {
   MapPin,
   Send,
   CheckCircle,
+  Shield
 } from "lucide-react";
 
 export default function ContactPageClient() {
@@ -50,6 +51,16 @@ export default function ContactPageClient() {
         title="Contact Us"
         subtitle="Get in touch with our team for any inquiries about our services or career opportunities."
       />
+
+      {/* Admin Access Button - Positioned discretely */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <Link href="/admin/login">
+          <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white">
+            <Shield className="h-4 w-4 mr-2" />
+            Admin
+          </Button>
+        </Link>
+      </div>
 
       {/* Contact Form */}
       <section className="py-20">

@@ -299,6 +299,170 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Leadership Development Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Leadership Development"
+            subtitle="Prepare your future leaders with the skills and mindset needed to drive organizational success."
+            centered
+          />
+
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4">Leadership Workshops & Executive Coaching</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Customized leadership workshops tailored to your organization's needs</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>One-on-one executive coaching for senior leaders</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Strategic planning and execution frameworks</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Change management and organizational transformation support</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4">Emotional Intelligence & Decision-Making</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Emotional intelligence training and assessment</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Decision-making frameworks and critical thinking skills</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Strategic thinking and innovation sessions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Team management and conflict resolution skills</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 bg-white p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold mb-4">Continuous Leadership Assessment & Feedback</h3>
+            <p className="text-muted-foreground mb-4">
+              We provide ongoing assessment and feedback mechanisms to ensure continuous leadership development and improvement.
+            </p>
+            <ul className="grid md:grid-cols-2 gap-4 text-muted-foreground">
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>360-degree feedback assessments</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Leadership effectiveness metrics</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Personalized development plans</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Regular coaching and mentoring sessions</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Performance & Skill Evaluation Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Performance & Skill Evaluation"
+            subtitle="Measure growth and identify new opportunities for improvement through structured assessments."
+            centered
+          />
+
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4">Comprehensive Skill Gap Analysis</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>In-depth assessment of current skill levels</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Identification of skill gaps and development areas</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Benchmarking against industry standards</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Prioritized recommendations for improvement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4">Regular Performance Reviews & Feedback</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Structured performance review processes</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Personalized feedback and coaching</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Goal setting and progress tracking</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 font-bold mr-3">•</span>
+                  <span>Career development planning</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 bg-white p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold mb-4">Data-Driven Insights & Customized Learning Paths</h3>
+            <p className="text-muted-foreground mb-4">
+              We leverage data analytics to provide actionable insights and create customized learning paths for each employee.
+            </p>
+            <ul className="grid md:grid-cols-2 gap-4 text-muted-foreground">
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Data-driven insights into employee development</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Customized learning paths based on evaluation results</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Recognition and reward programs for top performers</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 font-bold mr-3">•</span>
+                <span>Continuous monitoring and adjustment of development plans</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
